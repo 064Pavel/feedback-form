@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="text-center">
-                    <div><span class="text-xl">Want to create an account?</span><br><a :href="route('register')"><span class="text-2xl text-blue-800 font-medium cursor-pointer">create</span></a></div>
+                    <div><span class="text-xl">Want to create an account?</span><br><a :href="route('register')"><span class="text-2xl text-blue-800 font-medium cursor-pointer">Sign Up</span></a></div>
                 </div>
 
             </div>
