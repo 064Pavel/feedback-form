@@ -1,6 +1,6 @@
 <template>
 
-    <div class="bg-green-700">
+    <div class="bg-gradient-to-r from-cyan-500 to-blue-500">
         <div class="w-full h-28 bg-red-500 grid grid-cols-3 justify-items-center items-center">
             <div class="w-20 h-20 bg-white rounded-full">
                 <ApplicationLogo class="w-16 mx-auto relative top-2"/>
