@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Application\StoreController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,11 +28,15 @@ Route::get('/', function () {
 })->name('homepage');
 
 Route::prefix('/user')->group(function (){
-    Route::get('/dashboard', function () {
-        return Inertia::render('DashboardForUser');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
+
 
 });
+
+Route::middleware('auth')->group(function (){
+    Route::post('/applications', StoreController::class);
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
