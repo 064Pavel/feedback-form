@@ -25,9 +25,12 @@ Route::get('/', function () {
     ]);
 })->name('homepage');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('/user')->group(function (){
+    Route::get('/dashboard', function () {
+        return Inertia::render('DashboardForUser');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

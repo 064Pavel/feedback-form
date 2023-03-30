@@ -3,12 +3,12 @@
     <div class="bg-gradient-to-r from-cyan-500 to-blue-500 ">
         <div class="w-full h-28 bg-red-500 grid grid-cols-3 justify-items-center items-center">
             <div class="w-20 h-20 bg-white rounded-full">
-                <ApplicationLogo class="w-16 mx-auto relative top-2 ease-in-out hover:animate-bounce"/>
+                <ApplicationLogo class="w-16 mx-auto relative top-2"/>
             </div>
             <div><span class="text-6xl text-white font-medium">Feedback-forms</span></div>
             <div class="grid grid-cols-2 gap-x-8 text-2xl">
-                <a :href="route('login')"><button class="w-36 h-10 rounded-2xl bg-white hover:bg-gray-100">Sign In</button></a>
-                <a :href="route('register')"><button class="w-36 h-10 rounded-2xl bg-white hover:bg-gray-100">Sign Up</button></a>
+                <a :href="route('login')"><button class="w-36 h-10 rounded-2xl bg-white hover:bg-gray-100 font-medium">Sign In</button></a>
+                <a :href="route('register')"><button class="w-36 h-10 rounded-2xl bg-white hover:bg-gray-100 font-medium">Sign Up</button></a>
             </div>
         </div>
         <div class="container mx-auto mt-20 p-12 w-full h-screen grid grid-cols-3">

@@ -1,32 +1,32 @@
 <script setup>
-// import Checkbox from '@/Components/Checkbox.vue';
-// import GuestLayout from '@/Layouts/GuestLayout.vue';
-// import InputError from '@/Components/InputError.vue';
-// import InputLabel from '@/Components/InputLabel.vue';
-// import PrimaryButton from '@/Components/PrimaryButton.vue';
-// import TextInput from '@/Components/TextInput.vue';
-// import { Head, Link, useForm } from '@inertiajs/vue3';
-//
-// defineProps({
-//     canResetPassword: {
-//         type: Boolean,
-//     },
-//     status: {
-//         type: String,
-//     },
-// });
-//
-// const form = useForm({
-//     email: '',
-//     password: '',
-//     remember: false,
-// });
-//
-// const submit = () => {
-//     form.post(route('login'), {
-//         onFinish: () => form.reset('password'),
-//     });
-// };
+import Checkbox from '@/Components/Checkbox.vue';
+import GuestLayout from '@/Layouts/GuestLayout.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import TextInput from '@/Components/TextInput.vue';
+import { Head, Link, useForm } from '@inertiajs/vue3';
+
+defineProps({
+    canResetPassword: {
+        type: Boolean,
+    },
+    status: {
+        type: String,
+    },
+});
+
+const form = useForm({
+    email: '',
+    password: '',
+    remember: false,
+});
+
+const submit = () => {
+    form.post(route('login'), {
+        onFinish: () => form.reset('password'),
+    });
+};
 </script>
 
 <template>
@@ -41,16 +41,16 @@
 
                 <div>
                     <label class="font-medium text-2xl">Email: </label>
-                    <input type="email" class="w-full h-[50px] rounded-xl">
+                    <input v-model="form.email" type="email" class="w-full h-[50px] rounded-xl">
                 </div>
 
                 <div class="mt-4">
                     <label class="font-medium text-2xl">Password: </label>
-                    <input type="password" class="w-full h-[50px] rounded-xl">
+                    <input v-model="form.password" type="password" class="w-full h-[50px] rounded-xl">
                 </div>
 
                 <div class="mt-8">
-                    <button class="w-full h-[50px] bg-pink-600 text-3xl text-white rounded-2xl font-medium">Sign In</button>
+                    <button @click.prevent="submit" class="w-full h-[50px] bg-pink-600 text-3xl text-white rounded-2xl font-medium">Sign In</button>
                 </div>
 
                 <div class="inline-flex items-center justify-center w-full mt-6">
