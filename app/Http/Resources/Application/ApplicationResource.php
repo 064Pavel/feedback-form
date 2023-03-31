@@ -22,7 +22,7 @@ class ApplicationResource extends JsonResource
             "user_name" => $this->user_name,
             "title" => $this->title,
             "description" => $this->description,
-            "created_at" => $this->created_at->diffForHumans(),
+            "date" => $this->created_at->diffForHumans(),
             "images" => ImageResource::collection($this->images),
             "user" => new UserResource($this->user)
 

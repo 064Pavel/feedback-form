@@ -14,7 +14,7 @@ class IndexController extends Controller
     {
         $applications = Application::all();
 
-        $applications = ApplicationResource::collection($applications);
+        $applications = ApplicationResource::collection($applications)->resolve();
 
         return Inertia::render('DashboardForModerator', compact('applications'));
     }
