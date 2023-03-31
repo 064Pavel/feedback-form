@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Application\IndexController;
 use App\Http\Controllers\Application\StoreController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\DashboardController;
@@ -29,11 +30,10 @@ Route::get('/', function () {
 
 Route::prefix('/user')->group(function (){
     Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
-
-
 });
 
 Route::middleware('auth')->group(function (){
+    Route::get('/applications', IndexController::class);
     Route::post('/applications', StoreController::class);
 });
 
