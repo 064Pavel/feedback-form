@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Application\CreateController;
 use App\Http\Controllers\Application\IndexController;
+use App\Http\Controllers\Application\ShowController;
 use App\Http\Controllers\Application\StoreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/applications/create', CreateController::class)->name('applications.create');
     Route::get('/applications', IndexController::class)->name('applications.index');
     Route::post('/applications', StoreController::class)->name('applications.store');
+    Route::get('/applications/{application}', ShowController::class)->name('applications.show');
 });
 
 Route::middleware('auth')->group(function () {
