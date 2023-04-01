@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Application\CreateController;
 use App\Http\Controllers\Application\IndexController;
+use App\Http\Controllers\Application\SendReplyController;
 use App\Http\Controllers\Application\ShowController;
 use App\Http\Controllers\Application\StoreController;
 use App\Http\Controllers\ProfileController;
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/applications', IndexController::class)->name('applications.index');
     Route::post('/applications', StoreController::class)->name('applications.store');
     Route::get('/applications/{application}', ShowController::class)->name('applications.show');
+    Route::post('/send-reply', SendReplyController::class)->name('applications.send.reply');
 });
 
 Route::middleware('auth')->group(function () {

@@ -14,9 +14,12 @@
 
                 <div class="w-full h-[300px] mt-2 text-white grid grid-cols-2">
                     <div class="bg-gray-200 p-6">
-                        <div class="text-black text-3xl font-semibold">{{application.data.title}}</div>
-                        <div class="text-black text-xl">Description: {{application.data.description}}</div>
-                        <div class="text-black text-xl"><span class="font-semibold">Date:</span> {{application.data.date}}</div>
+                        <div class="text-black text-3xl font-semibold">{{ application.data.title }}</div>
+                        <div class="text-black text-xl">Description: {{ application.data.description }}</div>
+                        <div class="text-black text-xl">User: {{ application.data.user_name }}</div>
+                        <div class="text-black text-xl"><span class="font-semibold">Date:</span>
+                            {{ application.data.date }}
+                        </div>
                     </div>
                     <div class="bg-indigo-500 p-6">
                         <div v-for="image in application.data.images">
@@ -31,10 +34,12 @@
             </div>
 
             <div class="h-60 mt-24">
-                <div><textarea class="w-full h-40" :value="application.data.user_name"></textarea></div>
+                <div>
+                    <textarea v-model="form.reply" class="w-full h-40"/>
+                </div>
                 <div class="mt-8 grid justify-items-end">
                     <div>
-                        <button class="w-48 h-10 bg-indigo-500 text-3xl text-white rounded-2xl">Send</button>
+                        <button @click.prevent="send" class="w-48 h-10 bg-indigo-500 text-3xl text-white rounded-2xl">Send</button>
                     </div>
                 </div>
             </div>
@@ -46,6 +51,7 @@
 
 <script>
 import HeaderComponent from "@/Components/HeaderComponent.vue";
+import {router} from "@inertiajs/vue3";
 
 export default {
     name: "Show",
@@ -53,8 +59,20 @@ export default {
 
     props: ['application'],
 
-    methods:{
+    data() {
+        return {
+            form: {
+                id: this.application.data.id,
+                user_email: this.application.data.user.email,
+                reply: ""
+            }
+        }
+    },
 
+    methods: {
+        send() {
+            router.post('/send-reply', this.form)
+        }
     }
 }
 </script>
