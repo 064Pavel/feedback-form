@@ -3,6 +3,6 @@
 
 {{$reply}}
 
-Thanks,<br>
-{{ config('app.name') }}
+@feedback
+
 </x-mail::message>

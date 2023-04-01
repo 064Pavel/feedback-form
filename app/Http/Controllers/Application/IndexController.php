@@ -16,7 +16,7 @@ class IndexController extends Controller
     {
         $this->authorize('view', Auth::user());
 
-        $applications = Application::all();
+        $applications = Application::where('is_active', true)->get();
 
         $applications = ApplicationResource::collection($applications)->resolve();
 
