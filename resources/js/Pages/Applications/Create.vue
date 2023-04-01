@@ -98,7 +98,7 @@ export default defineComponent({
                             <div class="w-36 h-24 rounded-full bg-white">
                                 <img
                                     class="w-20 mx-auto relative top-1"
-                                    src="../../../public/UI/photo.svg">
+                                    src="../../../../public/UI/photo.svg">
                             </div>
 <!---->
                         </div>
