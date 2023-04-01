@@ -3,9 +3,10 @@ import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 import {defineComponent} from "vue";
 import Dropzone from "dropzone";
 import {router} from "@inertiajs/vue3";
+import HeaderComponent from "@/Components/HeaderComponent.vue";
 
 export default defineComponent({
-    components: {ApplicationLogo},
+    components: {HeaderComponent, ApplicationLogo},
 
     props:['userId'],
 
@@ -56,18 +57,8 @@ export default defineComponent({
 
 <template>
     <div class="bg-gradient-to-r from-cyan-500 to-blue-500 w-full h-screen grid grid-cols-1">
-        <div class="w-full h-28 bg-red-500 grid grid-cols-3 justify-items-center items-center">
-            <div class="w-20 h-20 bg-white rounded-full">
-                <ApplicationLogo class="w-16 mx-auto relative top-2"/>
-            </div>
-            <div><span class="text-6xl text-white font-medium">Feedback-forms</span></div>
-            <div class="grid grid-cols-2 gap-x-8 text-2xl">
-                <a :href="route('homepage')">
-                    <button class="w-36 h-10 rounded-2xl bg-white hover:bg-gray-100 font-medium">Sign Out</button>
-                </a>
-            </div>
-        </div>
 
+        <HeaderComponent />
 
         <div class="w-1/2 h-[700px] rounded-2xl mx-auto bg-blue-400 ">
             <div class="w-full h-[700px] rounded-2xl mx-auto bg-white relative top-6 right-6 p-14">
@@ -111,7 +102,7 @@ export default defineComponent({
 
 
                 </div>
-                <div class="mt-16 w-full">
+                <div class="mt-12 w-full">
                     <button @click.prevent="send"
                             class="bg-red-500 relative left-[52%] text-white rounded-2xl text-3xl font-medium w-96 h-12">
                         Send

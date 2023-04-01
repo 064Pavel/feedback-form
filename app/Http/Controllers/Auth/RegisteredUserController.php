@@ -33,7 +33,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:'.User::class,
+            'email' => 'required|string|email|max:255|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -47,9 +47,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        if (Auth::user()->role_id === 1){
-            return redirect(RouteServiceProvider::USER_PAGE);
-        } else return redirect(RouteServiceProvider::MODERATOR_PAGE);
+        return redirect(RouteServiceProvider::USER_PAGE);
 
 
     }

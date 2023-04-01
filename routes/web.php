@@ -26,7 +26,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-})->name('homepage');
+})->middleware('guest')->name('homepage');
 
 Route::middleware('auth')->group(function (){
     Route::get('/applications/create', CreateController::class)->name('applications.create');
