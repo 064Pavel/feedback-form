@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('path');
-            $table->string('url');
 
-            $table->foreignId('application_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('path')->nullable();
+            $table->string('url')->nullable();
+            $table->foreignId('application_id')
+                ->nullable()
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
 
             $table->timestamps();
         });

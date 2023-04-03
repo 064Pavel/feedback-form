@@ -5,7 +5,7 @@
 
         <div class="w-1/2 h-[700px] mx-auto bg-white rounded-2xl grid-cols-1 p-8 justify-items-center items-center">
             <div class="text-center"><span class="bg-red-500 text-white text-5xl px-3">Applications</span></div>
-            <div class="grid grid-cols-2 mt-10">
+            <div class="grid grid-cols-2 mt-10 overflow-y-scroll h-[500px] w-full">
                 <div v-for="application in applications" class="w-96 h-40 bg-gray-200 rounded-2xl mx-auto mt-10 text-black p-5 text-2xl">
                     <div class="w-8 h-8 bg-blue-500 rounded-full text-white text-center relative bottom-8 right-6">{{application.id}}</div>
                     <div class="truncate uppercase">{{application.title}}</div>
