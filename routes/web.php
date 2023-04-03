@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Application\ApplicationSuccessfullyCreatedController;
 use App\Http\Controllers\Application\CreateController;
 use App\Http\Controllers\Application\IndexController;
 use App\Http\Controllers\Application\SendReplyController;
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function (){
     Route::get('/applications', IndexController::class)->name('applications.index');
     Route::post('/applications', StoreController::class)->name('applications.store');
     Route::get('/applications/{application}', ShowController::class)->name('applications.show');
+
+    Route::get('/application-successfully-created', ApplicationSuccessfullyCreatedController::class)->name('application.successfully.created');
     Route::post('/send-reply', [SendReplyController::class, 'send'])->name('applications.send.reply');
 });
 

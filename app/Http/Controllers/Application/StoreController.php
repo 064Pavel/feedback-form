@@ -8,13 +8,18 @@ use App\Models\Application;
 use App\Models\Image;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Inertia\Inertia;
 
 class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
+        $this->authorize('viewAny', Auth::user());
+
         $data = $request->validated();
+
         $images = $data['images'];
         unset($data['images']);
 
@@ -32,7 +37,7 @@ class StoreController extends Controller
             ]);
         }
 
-        return response()->json(['message' => 'Application created']);
+        return Inertia::location(route('application.successfully.created'));
 
     }
 }
