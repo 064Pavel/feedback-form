@@ -6,6 +6,14 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
+defineProps(
+    {
+        errors:{
+            type: Object
+        }
+    }
+)
+
 const form = useForm({
     name: '',
     email: '',
@@ -34,21 +42,28 @@ const submit = () => {
                 <div>
                     <label class="font-medium text-2xl">Name: </label>
                     <input v-model="form.name" type="text" class="w-full h-[50px] rounded-xl">
+                    <div v-if="errors.name" class="text-red-600 text-sm">{{errors.name}}</div>
+
                 </div>
 
                 <div class="mt-4">
                     <label class="font-medium text-2xl">Email: </label>
                     <input v-model="form.email" type="email" class="w-full h-[50px] rounded-xl">
+                    <div v-if="errors.email" class="text-red-600 text-sm">{{errors.email}}</div>
+
                 </div>
 
                 <div class="mt-4">
                     <label class="font-medium text-2xl">Password: </label>
                     <input v-model="form.password" type="password" class="w-full h-[50px] rounded-xl">
+                    <div v-if="errors.password" class="text-red-600 text-sm">{{errors.password}}</div>
+
                 </div>
 
                 <div class="mt-4">
                     <label class="font-medium text-2xl">Confirm Password: </label>
                     <input v-model="form.password_confirmation" type="password" class="w-full h-[50px] rounded-xl">
+                    <div v-if="errors.password_confirmation" class="text-red-600 text-sm">{{errors.password_confirmation}}</div>
                 </div>
 
                 <div class="mt-8">

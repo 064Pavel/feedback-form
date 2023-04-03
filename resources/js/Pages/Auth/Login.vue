@@ -14,6 +14,9 @@ defineProps({
     status: {
         type: String,
     },
+    errors: {
+        type: Object
+    }
 });
 
 const form = useForm({
@@ -42,11 +45,13 @@ const submit = () => {
                 <div>
                     <label class="font-medium text-2xl">Email: </label>
                     <input v-model="form.email" type="email" class="w-full h-[50px] rounded-xl">
+                    <div v-if="errors.email" class="text-red-600 text-sm">{{errors.email}}</div>
                 </div>
 
                 <div class="mt-4">
                     <label class="font-medium text-2xl">Password: </label>
                     <input v-model="form.password" type="password" class="w-full h-[50px] rounded-xl">
+                    <div v-if="errors.password" class="text-red-600 text-sm">{{errors.password}}</div>
                 </div>
 
                 <div class="mt-8">

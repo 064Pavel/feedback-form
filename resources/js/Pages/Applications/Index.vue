@@ -11,7 +11,7 @@
                     <div class="truncate uppercase">{{application.title}}</div>
                     <div class="truncate text-xl">Description: {{application.description}}</div>
                     <div class="text-xl">Date: {{application.date}}</div>
-                    <div class="relative left-72"><a><button class="w-24 h-8 bg-red-500 text-white text-xl rounded-xl">Respond</button></a></div>
+                    <div class="relative left-72"><a :href="route('applications.show', application)"><button class="w-24 h-8 bg-red-500 text-white text-xl rounded-xl">Respond</button></a></div>
                 </div>
             </div>
         </div>

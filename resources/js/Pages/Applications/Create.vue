@@ -8,7 +8,7 @@ import HeaderComponent from "@/Components/HeaderComponent.vue";
 export default defineComponent({
     components: {HeaderComponent, ApplicationLogo},
 
-    props:['userId'],
+    props: ['userId', 'errors'],
 
     data() {
         return {
@@ -58,7 +58,7 @@ export default defineComponent({
 <template>
     <div class="bg-gradient-to-r from-cyan-500 to-blue-500 w-full h-screen grid grid-cols-1">
 
-        <HeaderComponent />
+        <HeaderComponent/>
 
         <div class="w-1/2 h-[700px] rounded-2xl mx-auto bg-blue-400 ">
             <div class="w-full h-[700px] rounded-2xl mx-auto bg-white relative top-6 right-6 p-14">
@@ -74,30 +74,35 @@ export default defineComponent({
                     <div class="text-center">
                         <label class="font-medium text-2xl">How can I call you? </label><br>
                         <input v-model="form.user_name" type="text" class="w-96 h-[50px] rounded-xl mt-2">
+                        <div v-if="errors.user_name" class="text-red-600 text-sm">{{ errors.user_name }}</div>
                     </div>
 
 
                     <div class="text-center">
                         <label class="font-medium text-2xl">What's happened? </label><br>
                         <input v-model="form.title" type="text" class="w-96 h-[50px] rounded-xl mt-2">
+                        <div v-if="errors.title" class="text-red-600 text-sm">{{ errors.title }}</div>
                     </div>
 
                     <div class="flex flex-col items-center justify-center w-full mt-16 text-center relative bottom-4">
-                        <label class="font-medium text-2xl mb-4">Submit a screenshot/photo<br><span class="text-xl text-gray-600">Click OR Transfer</span> </label><br>
+                        <label class="font-medium text-2xl mb-4">Submit a screenshot/photo<br><span
+                            class="text-xl text-gray-600">Click OR Transfer</span> </label><br>
 
-                        <div ref="dropzone" class="w-96 h-36 p-5 rounded-2xl bg-gradient-to-r from-cyan-600 to-blue-500 grid grid-cols-2">
+                        <div ref="dropzone"
+                             class="w-96 h-36 p-5 rounded-2xl bg-gradient-to-r from-cyan-600 to-blue-500 grid grid-cols-2">
                             <div class="w-36 h-24 rounded-full bg-white">
                                 <img
                                     class="w-20 mx-auto relative top-1"
                                     src="../../../../public/UI/photo.svg">
                             </div>
-<!---->
+
                         </div>
                     </div>
 
                     <div class="flex flex-col items-center justify-center w-full mt-16">
                         <label class="font-medium text-2xl mb-4">Describe your problem in detail </label><br>
                         <textarea v-model="form.description" class="w-96 h-36 rounded-2xl resize-none"></textarea>
+                        <div v-if="errors.description" class="text-red-600 text-sm">{{ errors.description }}</div>
                     </div>
 
 
@@ -110,36 +115,5 @@ export default defineComponent({
                 </div>
             </div>
         </div>
-
-        <!--        <img-->
-        <!--            class="w-60 absolute top-1/2 left-[6%] transform rotate-45"-->
-        <!--            src="../../../public/UI/blob.svg">-->
-
-        <!--        <img-->
-        <!--            class="w-60 absolute top-[20%] left-[2%] transform rotate-45"-->
-        <!--            src="../../../public/UI/blob(3).svg">-->
-
-        <!--        <img-->
-        <!--            class="w-60 absolute top-[14%] left-[82%] transform rotate-45"-->
-        <!--            src="../../../public/UI/blob(4).svg">-->
-
-        <!--        <img-->
-        <!--            class="w-60 absolute transform rotate-45 top-[44%] left-[76%] transform rotate-45"-->
-        <!--            src="../../../public/UI/blob(4).svg">-->
-
-        <!--        <img-->
-        <!--            class="w-60 absolute transform rotate-90 top-[68%] left-[86%] transform rotate-45"-->
-        <!--            src="../../../public/UI/blob.svg">-->
-
-
     </div>
-
-
-    <!--    <AuthenticatedLayout>-->
-    <!--        <template #header>-->
-    <!--            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>-->
-    <!--        </template>-->
-
-
-    <!--    </AuthenticatedLayout>-->
 </template>
